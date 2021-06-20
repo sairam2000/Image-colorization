@@ -1,0 +1,24 @@
+{% extends 'navbar.html' %}
+{% block content%}
+<h1 style="margin:20px;">Object Detector</h1>
+<div class="input-group mb-3">
+    <form style="display: flex; margin-left: 20px;" action="/detect" method="post" enctype="multipart/form-data">
+        <input type="file" class="form-control" id="img" name="img" accept="image/*" >
+        <input type="submit" class="btn btn-primary" >
+    </form>
+</div>
+
+{% if result %}
+<div style="display: flex;">
+    <div  style="display: flex; flex: 50%; flex-direction: column; margin:30px; margin-top: 0px;">
+        <h2>Input Image:</h2>
+    <img src="{{input_file}}" alt="" style="max-width: 550px; max-height: 550px; width: auto; height: auto;">
+    </div>  
+    <div  style="display: flex; flex: 50%; flex-direction: column;margin: 30px; margin-top: 0px;">
+        <h2>Output Image:</h2>
+    <img src="{{output_file}}" alt="" style="max-width: 550px; max-height: 550px; width: auto; height: auto;">
+    </div>
+</div>
+
+{% endif %}
+{% endblock %}
